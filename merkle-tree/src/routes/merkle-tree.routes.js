@@ -29,8 +29,8 @@ async function startEventFilter(req, res, next) {
   }
   const treeId = req.body.treeId;
   const { db } = req.user;
-  const { contractAddress } = req.body; // contractAddress is an optional parameter. Address can instead be inferred by Timber in many cases.
 
+  // TODO: if possible, make this easier to read and follow. Fewer 'if' statements. Perhaps use 'switch' statements instead?
   try {
     if (alreadyStarted[contractName] && (treeId === undefined || treeId === '')) {
       res.data = { message: `filter already started for ${contractName}` };

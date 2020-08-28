@@ -23,7 +23,7 @@ export default async function(req, res, next) {
         contractName = contractNameTest;
       }
     }
-    const treeId = req.body.treeId;
+    const { treeId } = req.body;
     // console.log(`treeId: ${treeId}`);
     req.user = {};
     // give all requesters admin privileges:
