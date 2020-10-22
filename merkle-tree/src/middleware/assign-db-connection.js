@@ -6,7 +6,7 @@ const { admin } = config.get('mongo');
 
 export default async function(req, res, next) {
   console.log('\nsrc/middleware/assign-db-connection');
-  // console.log('req.body:', req.body);
+  console.log('req.query, req.body:', req.query, req.body);
 
   try {
     let contractName = req.body.contractName;
@@ -23,7 +23,7 @@ export default async function(req, res, next) {
         contractName = contractNameTest;
       }
     }
-    const { treeId } = req.body;
+    const treeId = req.body.treeId || req.query.treeId;
     // console.log(`treeId: ${treeId}`);
     req.user = {};
     // give all requesters admin privileges:
